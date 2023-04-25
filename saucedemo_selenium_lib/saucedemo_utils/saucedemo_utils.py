@@ -44,7 +44,7 @@ class SaucedemoUtils:
     Class containing common operations on Saucedemo webapp. This the core class for Selenium tests.
 
     Attributes:
-        saucedemo_url: URL of target Saucedemo webapp where the tests will be run
+        host_url: URL of target Saucedemo webapp where the tests will be run
         username: Login username for Target Saucedemo webapp
         password: Password of login user for target Saucedemo webapp
         headless: Flag if true run tests in headless mode. i.e browser is not opened while running tests
@@ -53,7 +53,7 @@ class SaucedemoUtils:
 
     def __init__(
         self,
-        saucedemo_url,
+        host_url,
         username="",
         password="",
         headless=True,
@@ -70,7 +70,7 @@ class SaucedemoUtils:
         """initialises SaucedemoUtils
 
         Args:
-            saucedemo_url: URL of target Saucedemo webapp where the tests will be run
+            host_url: URL of target Saucedemo webapp where the tests will be run
             username: Login username for Target Saucedemo webapp
             password: Password of login user for target Saucedemo webapp
             headless: Flag if true run tests in headless mode. i.e browser is not opened while running tests. Defaulted to True
@@ -91,7 +91,7 @@ class SaucedemoUtils:
 
         create_folder_if_non_exist(output_path)
         create_folder_if_non_exist(download_path)
-        self.saucedemo_url = saucedemo_url
+        self.host_url = host_url
         self._browser = browser
         self._webdriver_cache_valid_range = webdriver_cache_valid_range
         self.username = username
@@ -108,7 +108,7 @@ class SaucedemoUtils:
         self._jscover_name = jscover_folder_name
         self._grid = grid
         self._common_locators = CommonLocators()
-        self.logger.info(f"Running tests on Saucedemo webapp:- {self.saucedemo_url}")
+        self.logger.info(f"Running tests on Saucedemo webapp:- {self.host_url}")
 
     def __del__(self):
         """
@@ -455,7 +455,7 @@ class SaucedemoUtils:
         """
         self._setup_web_driver()
         print(self._browser)
-        self.driver.get(self.saucedemo_url)
+        self.driver.get(self.host_url)
         WebDriverWait(self.driver, SaucedemoTimeOuts.LONG_LOADING_TIMEOUT).until(
             EC.element_to_be_clickable((By.NAME, "username"))
         )
