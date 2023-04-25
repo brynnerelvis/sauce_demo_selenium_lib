@@ -2,15 +2,15 @@ import glob
 import os
 import time
 
-from saucedemo_selenium_lib.exceptions import SaucedemoSeleniumTestError
-from saucedemo_selenium_lib.saucedemo_utils.saucedemo_utils import SuacedemoUtils
+from saucedemo_selenium_lib.exceptions import SaucedemoTestError
+from saucedemo_selenium_lib.saucedemo_utils.saucedemo_utils import SaucedemoUtils
 
 
 class SaucedemoFileDownloader:
     """For downloading files to a given path"""
 
     def __init__(self, suacedemo_utils, download_button_locator, download_path):
-        self._saucedemo_utils: SuacedemoUtils = suacedemo_utils
+        self._saucedemo_utils: SaucedemoUtils = suacedemo_utils
         self._download_button_locator = download_button_locator
         self._download_path = download_path
         self._downloaded_file = None
@@ -83,6 +83,6 @@ class SaucedemoFileDownloader:
                 total_wait += wait_second
                 self._saucedemo_utils.logger.info("Downloading ....")
             if total_wait > time_out:
-                raise SaucedemoSeleniumTestError(
+                raise SaucedemoTestError(
                     "Download  timeout. File couldn't be downloaded"
                 )
