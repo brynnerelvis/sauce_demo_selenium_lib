@@ -11,3 +11,4 @@ class CommonLocators:
     USER_LOGIN_BTN = (By. ID, "login-button")
     LOGOUT_BUTTON = (By. ID, "logout_sidebar_link")
     SORT_DROP_DOWN = (By. CLASS_NAME, "product_sort_container")
+    RESET_APP_STATE = (By. ID, "reset_sidebar_link")
