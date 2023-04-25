@@ -14,7 +14,8 @@ from saucedemo_selenium_lib.locators.common import (
 
 class BaseSaucedemoPage:
     """
-    Base class for object page that define common functions that can be done on a saucedemo page.
+    Base class for object page that define common functions that
+    can be done on a saucedemo page.
     """
 
     def __init__(self, saucedemo_utils: sl.SaucedemoUtils, object_name=None):
@@ -40,7 +41,8 @@ class BaseSaucedemoPage:
 
     def sort_product_list(self, sort_type: str):
         """Sort the product list using sort type.
-        Redundant function. As it has been used a lot in tests. Just call sort_product_list in Saucedemo utils"""
+        Redundant function. As it has been used a lot in tests.
+        Just call sort_product_list in Saucedemo utils"""
         self.saucedemo_utils.sort_product_list(sort_type)
 
     def log_in_saucedemo(self):
@@ -116,7 +118,8 @@ class BaseSaucedemoPage:
         assert product_name not in product_names
 
     def verify_text_in_locator(self, locator: tuple, text: str):
-        """Verify if the text in the locator exist and it's the same as a given text"""
+        """Verify if the text in the locator exist and it's the
+        same as a given text"""
         try:
             element = self._saucedemo_utils.get_element(locator)
             assert element.text == text
@@ -138,6 +141,16 @@ class BaseSaucedemoPage:
         menu_button.click()
 
     def close_browser(self):
-        """Close web driver. Just provide api to closer browser without having excess to saucedemo_utils"""
+        """Close web driver. Just provide api to closer browser
+        without having excess to saucedemo_utils"""
         self.saucedemo_utils.close_browser()
 
+    def reset_app_state(self):
+        """
+        Resets the saucedemo webapp state by clicking the reset
+        button in the menu.
+        """
+        self._open_menu()
+        self.saucedemo_utils.click_at_element(
+            element_locator=CommonLocators.RESET_APP_STATE,
+        )
