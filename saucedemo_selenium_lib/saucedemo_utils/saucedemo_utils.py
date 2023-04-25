@@ -457,7 +457,7 @@ class SaucedemoUtils:
         print(self._browser)
         self.driver.get(self.host_url)
         WebDriverWait(self.driver, SaucedemoTimeOuts.LONG_LOADING_TIMEOUT).until(
-            EC.element_to_be_clickable((By.NAME, "username"))
+            EC.element_to_be_clickable((By.ID, "user-name"))
         )
         self.wait_until_element_is_available(self.common_locators.USER_LOGIN_USERNAME)
 
