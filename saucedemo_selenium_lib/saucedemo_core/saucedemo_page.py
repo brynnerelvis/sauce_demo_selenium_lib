@@ -50,11 +50,15 @@ class BaseSaucedemoPage:
         self._saucedemo_utils.open_saucedemo_website()
         self._saucedemo_utils.login()
 
+    def verify_if_product_is_present(self, product_name):
+        """Check if the product is present by the product name"""
+        self.saucedemo_utils.is_product_found(product_name)
+
     def select_product_by_name(self, product_name):
         """
         Click on a product name to open an object page
         """
-        self.saucedemo_utils.is_product_found(product_name)
+        self.verify_if_product_is_present(product_name)
         self.saucedemo_utils.click_at_a_product_in_products_list(product_name)
 
     def select_product_by_image(self, product_name):
