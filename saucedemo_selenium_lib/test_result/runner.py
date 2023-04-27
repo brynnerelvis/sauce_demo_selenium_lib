@@ -1,7 +1,6 @@
 """ Tests Runner
 
-Contain classes or functions for Tests runner. These include SaucedemoTestRunner for running tests locally
-and SaucedemoWebAppTestRunner for running tests remotely on a server like a web testing cockpit, pipelines etc
+Contain classes or functions for Tests runner. These include SaucedemoTestRunner for running tests locally.
 """
 
 import os

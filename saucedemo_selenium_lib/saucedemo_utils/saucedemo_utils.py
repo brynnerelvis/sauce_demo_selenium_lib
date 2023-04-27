@@ -775,3 +775,40 @@ class SaucedemoUtils:
             locator=self.common_locators.SORT_DROP_DOWN,
             text=sort_type,
         )
+
+    def get_products(self):
+        """Get list of products displayed in products list page"""
+        try:
+            products = WebDriverWait(
+                self.driver, SaucedemoTimeOuts.SHORT_LOADING_TIMEOUT
+            ).until(
+                EC.presence_of_all_elements_located(CommonLocators.PRODUCT)
+            )
+            return products
+
+        except (NoSuchElementException, TimeoutException):
+            return []
+
+    def get_product_names(self):
+        """Get list of product names displayed in products list page"""
+        products = self.get_products()
+        product_names = []
+        for product in products:
+            product_name = self.get_child_element(
+                product, CommonLocators.PRODUCT_NAMES
+            ).text
+            product_names.append(product_name)
+
+        return product_names
+
+    def get_product_prices(self):
+        """Get list of product prices displayed in products list page"""
+        products = self.get_products()
+        product_prices = []
+        for product in products:
+            product_price = self.get_child_element(
+                product, CommonLocators.PRODUCT_PRICES
+            ).text
+            product_prices.append(product_price)
+
+        return product_prices
