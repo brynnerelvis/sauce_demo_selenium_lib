@@ -189,7 +189,7 @@ class ResultsTableCreator:
 
             overview_sheet.cell(
                 row=overview_iter, column=1
-            ).value = target.service_name
+            ).value = target.target_name
             overview_sheet.cell(row=overview_iter, column=2).value = target.passes
             overview_sheet.cell(row=overview_iter, column=3).value = target.failures
 

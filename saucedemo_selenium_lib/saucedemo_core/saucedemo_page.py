@@ -40,9 +40,7 @@ class BaseSaucedemoPage:
             return False
 
     def sort_product_list(self, sort_type: str):
-        """Sort the product list using sort type.
-        Redundant function. As it has been used a lot in tests.
-        Just call sort_product_list in Saucedemo utils"""
+        """Sort the product list using sort type"""
         self.saucedemo_utils.sort_product_list(sort_type)
 
     def log_in_saucedemo(self):

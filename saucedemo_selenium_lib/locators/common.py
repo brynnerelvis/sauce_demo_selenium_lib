@@ -12,3 +12,6 @@ class CommonLocators:
     LOGOUT_BUTTON = (By. ID, "logout_sidebar_link")
     SORT_DROP_DOWN = (By. CLASS_NAME, "product_sort_container")
     RESET_APP_STATE = (By. ID, "reset_sidebar_link")
+    PRODUCT = (By. CLASS_NAME, "inventory_item")
+    PRODUCT_NAMES = (By. CLASS_NAME, "inventory_item_name")
+    PRODUCT_PRICES = (By. CLASS_NAME, "inventory_item_price")
